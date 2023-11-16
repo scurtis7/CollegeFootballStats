@@ -1,0 +1,65 @@
+<div class="mat-elevation-z8 header-container">
+  <span class="header-title">Teams</span>
+
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectConference(); search.value='';" [(ngModel)]="selectedConference">
+      <option value="All">All Conferences</option>
+      <option *ngFor="let conference of conferences" [value]="conference">{{conference}}</option>
+    </select>
+  </div>
+
+  <div class="search-container">
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+        <input #search type="text" (keyup)="searchEvent($event)" class="form-control" placeholder="Search">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="main-content-table">
+  <div class="mat-elevation-z8 table-container">
+    <table [dataSource]="dataSource" class="team-table" mat-table matSort>
+      <!-- School Column -->
+      <ng-container matColumnDef="school">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by school">School</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.school}} </td>
+      </ng-container>
+
+      <!-- Abbreviation Column -->
+      <ng-container matColumnDef="abbreviation">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by abbreviation">Abbreviation</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.abbreviation}} </td>
+      </ng-container>
+
+      <!-- Conference Column -->
+      <ng-container matColumnDef="conference">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by conference">Conference</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.conference}} </td>
+      </ng-container>
+
+      <!-- Classification Column -->
+      <ng-container matColumnDef="classification">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by classification">Classification</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.classification}} </td>
+      </ng-container>
+
+      <!-- City Column -->
+      <ng-container matColumnDef="city">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by city">City</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.location.city}} </td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="state">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by state">State</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.location.state}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+# application-test properties
+
+cfs:
+  base-url: https://base/url
+  api-key: dummy-api-key
+
