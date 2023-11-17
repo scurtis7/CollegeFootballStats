@@ -22,6 +22,8 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   private teams: Team[];
   conferences = [];
 
+  isLoading = false;
+
   constructor(private teamService: TeamService) {
   }
 
@@ -55,12 +57,14 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   private getTeamList() {
+    this.isLoading = true;
     this.teamService.getAllTeams()
       .subscribe((response: any) => {
         this.teamsAll = response;
         this.teams = this.teamsAll;
         this.dataSource.data = this.teams;
         this.getConferences();
+        this.isLoading = false;
       });
   }
 

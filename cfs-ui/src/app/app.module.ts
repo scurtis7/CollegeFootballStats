@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthInterceptor } from "./service/auth.interceptor";
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    TeamsComponent
+    TeamsComponent,
+    SpinnerComponent
   ],
   imports: [
     HttpClientModule,
