@@ -7,14 +7,15 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TeamsComponent } from './components/teams/teams.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { AuthInterceptor } from "./service/auth.interceptor";
+import { HttpClientModule } from "@angular/common/http";
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { FpiComponent } from './components/fpi/fpi.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'teams', component: TeamsComponent },
-  { path: '**', redirectTo: 'teams' }
+  { path: 'fpi', component: FpiComponent },
+  { path: '**', redirectTo: 'fpi' }
 ];
 
 @NgModule({
@@ -22,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     TeamsComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    FpiComponent
   ],
   imports: [
     HttpClientModule,

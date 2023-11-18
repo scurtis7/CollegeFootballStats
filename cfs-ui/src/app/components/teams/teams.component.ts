@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from "@angular/material/table";
-import { Team } from "../../model/team";
+import { Team } from "../../model/team/team";
 import { TeamService } from "../../service/team.service";
 import { MatSort } from "@angular/material/sort";
 

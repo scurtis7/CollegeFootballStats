@@ -12,7 +12,6 @@ public class WebConfig implements WebFluxConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry.addMapping("/**");
-//        corsRegistry.addMapping("/teams");
     }
 
 }
