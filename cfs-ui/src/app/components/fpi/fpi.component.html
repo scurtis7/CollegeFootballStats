@@ -36,19 +36,19 @@
       <!-- Average Win Probability Column -->
       <ng-container matColumnDef="averageWinProbability">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by averageWinProbability">Average Win Probability</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.resumeRanks.averageWinProbability}} </td>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.averageWinProbability}} </td>
       </ng-container>
 
       <!-- Strength Of Schedule Column -->
       <ng-container matColumnDef="strengthOfSchedule">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by strengthOfSchedule">Strength of Schedule</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.resumeRanks.strengthOfSchedule}} </td>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.strengthOfSchedule}} </td>
       </ng-container>
 
       <!-- Game Control Column -->
       <ng-container matColumnDef="gameControl">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by gameControl">Game Control</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.resumeRanks.gameControl}} </td>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.gameControl}} </td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>

@@ -50,13 +50,13 @@
       <!-- City Column -->
       <ng-container matColumnDef="city">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by city">City</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.location.city}} </td>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.city}} </td>
       </ng-container>
 
       <!-- State Column -->
       <ng-container matColumnDef="state">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by state">State</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.location.state}} </td>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.state}} </td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>

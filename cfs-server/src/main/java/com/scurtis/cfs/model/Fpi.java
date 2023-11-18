@@ -16,7 +16,7 @@ public class Fpi {
 
     @Getter
     @Setter
-    private static class ResumeRanks {
+    public static class ResumeRanks {
         private int strengthOfRecord;
         private int fpi;
         private int averageWinProbability;
@@ -27,7 +27,7 @@ public class Fpi {
 
     @Getter
     @Setter
-    private static class Efficiencies {
+    public static class Efficiencies {
         private double overall;
         private double offense;
         private double defense;

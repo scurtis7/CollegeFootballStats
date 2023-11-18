@@ -1,8 +1,8 @@
 package com.scurtis.cfs.controller;
 
-import com.scurtis.cfs.model.Fpi;
-import com.scurtis.cfs.model.Sp;
-import com.scurtis.cfs.service.FpiService;
+import com.scurtis.cfs.dto.FpiDto;
+import com.scurtis.cfs.dto.SpDto;
+import com.scurtis.cfs.service.RatingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,16 +17,16 @@ import reactor.core.publisher.Flux;
 @RequestMapping(value = "ratings")
 public class RatingsController {
 
-    private final FpiService fpiService;
+    private final RatingService ratingService;
 
     @GetMapping(path = "fpi/year/{year}")
-    public Flux<Fpi> getFpiByYear(@PathVariable int year) {
-        return fpiService.getFpiByYear(year);
+    public Flux<FpiDto> getFpiByYear(@PathVariable int year) {
+        return ratingService.getFpiByYear(year);
     }
 
     @GetMapping(path = "sp/year/{year}")
-    public Flux<Sp> getSpByYear(@PathVariable int year) {
-        return fpiService.getSpByYear(year);
+    public Flux<SpDto> getSpByYear(@PathVariable int year) {
+        return ratingService.getSpByYear(year);
     }
 
 }

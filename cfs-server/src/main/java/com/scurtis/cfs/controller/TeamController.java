@@ -1,6 +1,6 @@
 package com.scurtis.cfs.controller;
 
-import com.scurtis.cfs.model.Team;
+import com.scurtis.cfs.dto.TeamDto;
 import com.scurtis.cfs.service.TeamService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class TeamController {
     private final TeamService teamService;
 
     @GetMapping
-    public Flux<Team> getAllTeams() {
+    public Flux<TeamDto> getAllTeams() {
         log.debug("getAllTeams()");
         return teamService.getAllTeams();
     }

@@ -1,5 +1,7 @@
 package com.scurtis.cfs.service;
 
+import com.scurtis.cfs.converter.TeamConverter;
+import com.scurtis.cfs.dto.TeamDto;
 import com.scurtis.cfs.model.Team;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,13 +15,15 @@ import reactor.core.publisher.Flux;
 public class TeamService {
 
     private final WebClient webClient;
+    private final TeamConverter teamConverter;
 
-    public Flux<Team> getAllTeams() {
+    public Flux<TeamDto> getAllTeams() {
         log.debug("TeamService.getAllTeams()");
         return webClient.get()
             .uri("teams")
             .retrieve()
-            .bodyToFlux(Team.class);
+            .bodyToFlux(Team.class)
+            .map(teamConverter::toDto);
     }
 
 }
