@@ -1,20 +1,26 @@
 <app-spinner *ngIf="isLoading"></app-spinner>
 <div class="mat-elevation-z8 header-container">
-  <span class="header-title">Ratings - FPI</span>
+  <span class="header-title">Football Power Index</span>
+  <span class="header-subtitle">(FPI is not a prediction but a probability)</span>
 
   <div class="select-container">
     <select class="form-select dropdown-font" (change)="selectYear();" [(ngModel)]="selectedYear">
-      <option value="All">All Conferences</option>
       <option *ngFor="let year of years" [value]="year">{{year}}</option>
     </select>
   </div>
 
 </div>
 
-
 <div class="main-content-table">
   <div class="mat-elevation-z8 table-container">
     <table [dataSource]="dataSource" class="team-table" mat-table matSort>
+
+      <!-- Row Number -->
+      <ng-container matColumnDef="row">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header>#</th>
+        <td *matCellDef="let team;let i=index;" class="table-cell" mat-cell> {{i+1}} </td>
+      </ng-container>
+
       <!-- Team Column -->
       <ng-container matColumnDef="team">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by team">Team</th>
@@ -33,6 +39,12 @@
         <td *matCellDef="let team" class="table-cell" mat-cell> {{team.fpi}} </td>
       </ng-container>
 
+      <!-- Resume FPI Column -->
+      <ng-container matColumnDef="resumeFpi">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by resumeFpi">Resume FPI</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.resumeFpi}} </td>
+      </ng-container>
+
       <!-- Average Win Probability Column -->
       <ng-container matColumnDef="averageWinProbability">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by averageWinProbability">Average Win Probability</th>
@@ -49,6 +61,30 @@
       <ng-container matColumnDef="gameControl">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by gameControl">Game Control</th>
         <td *matCellDef="let team" class="table-cell" mat-cell> {{team.gameControl}} </td>
+      </ng-container>
+
+      <!-- Overall Efficiency Column -->
+      <ng-container matColumnDef="overallEfficiency">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by overallEfficiency">Overall Efficiency</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.overallEfficiency}} </td>
+      </ng-container>
+
+      <!-- Offense Efficiency Column -->
+      <ng-container matColumnDef="offenseEfficiency">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by offenseEfficiency">Offense Efficiency</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.offenseEfficiency}} </td>
+      </ng-container>
+
+      <!-- Defense Efficiency Column -->
+      <ng-container matColumnDef="defenseEfficiency">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by defenseEfficiency">Defense Efficiency</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.defenseEfficiency}} </td>
+      </ng-container>
+
+      <!-- Special Teams Efficiency Column -->
+      <ng-container matColumnDef="specialTeamsEfficiency">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by specialTeamsEfficiency">Special Teams Efficiency</th>
+        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.specialTeamsEfficiency}} </td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>

@@ -4,7 +4,7 @@
   background-color: $cfs-blue-3;
   border-radius: 5px;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 450px 400px auto;
   grid-template-rows: 60px;
   margin-bottom: 20px;
   //border: red 1px solid;
@@ -17,8 +17,15 @@
   margin-left: 20px;
 }
 
+.header-subtitle {
+  font-size: 20px;
+  color: $cfs-white;
+  justify-self: left;
+  margin-top: 24px;
+}
+
 .select-container {
-  justify-self: right;
+  justify-self: left;
   align-self: center;
   width: 150px;
 }

@@ -14,7 +14,7 @@ export class FpiComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   selectedYear: number;
 
-  displayedColumns: string[] = ['team', 'conference', 'fpi', 'averageWinProbability', 'strengthOfSchedule', 'gameControl'];
+  displayedColumns: string[] = ['row', 'team', 'conference', 'fpi', 'resumeFpi', 'averageWinProbability', 'strengthOfSchedule', 'gameControl', 'overallEfficiency', 'offenseEfficiency', 'defenseEfficiency', 'specialTeamsEfficiency'];
   dataSource: MatTableDataSource<Team> = new MatTableDataSource<Team>();
 
   private teamsAll: Team[];
