@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SpDto {
+public class SpDto implements Comparable<SpDto> {
 
     private int year;
     private String team;
@@ -35,5 +35,10 @@ public class SpDto {
     private double havocTotal;
     private double havocFrontSeven;
     private double havocDb;
+
+    @Override
+    public int compareTo(SpDto other) {
+        return Integer.compare(getRanking(), other.getRanking());
+    }
 
 }

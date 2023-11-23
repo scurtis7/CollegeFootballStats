@@ -37,7 +37,8 @@ public class RatingService {
             .uri("ratings/fpi?year=" + year)
             .retrieve()
             .bodyToFlux(Fpi.class)
-            .map(fpiConverter::toDto);
+            .map(fpiConverter::toDto)
+            .sort();
     }
 
     /**
@@ -54,7 +55,8 @@ public class RatingService {
             .uri("ratings/sp?year=" + year)
             .retrieve()
             .bodyToFlux(Sp.class)
-            .map(spConverter::toDto);
+            .map(spConverter::toDto)
+            .sort();
     }
 
 }

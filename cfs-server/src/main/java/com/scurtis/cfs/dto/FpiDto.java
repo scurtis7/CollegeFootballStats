@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FpiDto {
+public class FpiDto implements Comparable<FpiDto> {
 
     private int year;
     private String team;
@@ -21,5 +21,10 @@ public class FpiDto {
     private double offenseEfficiency;
     private double defenseEfficiency;
     private double specialTeamsEfficiency;
+
+    @Override
+    public int compareTo(FpiDto other) {
+        return Integer.compare(getResumeFpi(), other.getResumeFpi());
+    }
 
 }
