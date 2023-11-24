@@ -1,0 +1,26 @@
+@import "src/assets/styles/variables";
+
+.menu-content {
+  justify-self: left;
+  //border: 1px solid red;
+}
+
+.menu-button {
+  height: 55px;
+  width: 55px;
+}
+
+.hamburger {
+  color: $cfs-white;
+  transform: scale(2);
+}
+
+.menu-list-item {
+  height: 30px !important;
+}
+
+.menu-item {
+  font-size: 14px;
+  color: $cfs-blue-3;
+}
+

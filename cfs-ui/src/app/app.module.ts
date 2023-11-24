@@ -10,6 +10,7 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { HttpClientModule } from "@angular/common/http";
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { FpiComponent } from './components/fpi/fpi.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
     DashboardComponent,
     TeamsComponent,
     SpinnerComponent,
-    FpiComponent
+    FpiComponent,
+    MenuComponent
   ],
   imports: [
     HttpClientModule,
