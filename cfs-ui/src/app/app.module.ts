@@ -11,12 +11,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { FpiComponent } from './components/fpi/fpi.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
+import { SpComponent } from './components/sp/sp.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'teams', component: TeamsComponent },
   { path: 'fpi', component: FpiComponent },
-  { path: '**', redirectTo: 'fpi' }
+  { path: 'sp', component: SpComponent },
+  { path: '**', redirectTo: 'dashboard' }
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const routes: Routes = [
     TeamsComponent,
     SpinnerComponent,
     FpiComponent,
-    MenuComponent
+    MenuComponent,
+    SpComponent
   ],
   imports: [
     HttpClientModule,

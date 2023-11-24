@@ -5,16 +5,16 @@ import { Team } from "../../model/team";
 import { RatingService } from "../../service/rating.service";
 
 @Component({
-  selector: 'app-fpi',
-  templateUrl: './fpi.component.html',
-  styleUrls: ['./fpi.component.scss']
+  selector: 'app-sp',
+  templateUrl: './sp.component.html',
+  styleUrls: ['./sp.component.scss']
 })
-export class FpiComponent implements OnInit, AfterViewInit {
+export class SpComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort;
   selectedYear: number;
 
-  displayedColumns: string[] = ['row', 'team', 'conference', 'fpi', 'resumeFpi', 'averageWinProbability', 'strengthOfSchedule', 'gameControl', 'overallEfficiency', 'offenseEfficiency', 'defenseEfficiency', 'specialTeamsEfficiency'];
+  displayedColumns: string[] = ['row', 'team', 'conference', 'rating', 'ranking', 'secondOrderWins', 'sos', 'offenseRating', 'offenseRanking', 'defenseRating', 'defenseRanking', 'havocTotal'];
   dataSource: MatTableDataSource<Team> = new MatTableDataSource<Team>();
 
   private teamsAll: Team[];
@@ -28,7 +28,7 @@ export class FpiComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.selectedYear = 2023;
-    this.getFpiList();
+    this.getSpList();
   }
 
   ngAfterViewInit(): void {
@@ -41,12 +41,12 @@ export class FpiComponent implements OnInit, AfterViewInit {
   }
 
   selectYear() {
-    this.getFpiList();
+    this.getSpList();
   }
 
-  private getFpiList() {
+  private getSpList() {
     this.isLoading = true;
-    this.ratingService.getFpi(this.selectedYear)
+    this.ratingService.getSp(this.selectedYear)
       .subscribe((response: any) => {
         this.teamsAll = response;
         this.teams = this.teamsAll;

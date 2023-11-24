@@ -19,73 +19,73 @@
       <!-- Row Number -->
       <ng-container matColumnDef="row">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header>#</th>
-        <td *matCellDef="let team;let i=index;" class="table-cell" mat-cell> {{i+1}} </td>
+        <td *matCellDef="let element;let i=index;" class="table-cell" mat-cell> {{i+1}} </td>
       </ng-container>
 
       <!-- Team Column -->
       <ng-container matColumnDef="team">
-        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by team">Team</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.team}} </td>
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by element">element</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.element}} </td>
       </ng-container>
 
       <!-- Conference Column -->
       <ng-container matColumnDef="conference">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by conference">Conference</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.conference}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.conference}} </td>
       </ng-container>
 
       <!-- FPI Column -->
       <ng-container matColumnDef="fpi">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by fpi">FPI</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.fpi}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.fpi}} </td>
       </ng-container>
 
       <!-- Resume FPI Column -->
       <ng-container matColumnDef="resumeFpi">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by resumeFpi">Resume FPI</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.resumeFpi}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.resumeFpi}} </td>
       </ng-container>
 
       <!-- Average Win Probability Column -->
       <ng-container matColumnDef="averageWinProbability">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by averageWinProbability">Average Win Probability</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.averageWinProbability}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.averageWinProbability}} </td>
       </ng-container>
 
       <!-- Strength Of Schedule Column -->
       <ng-container matColumnDef="strengthOfSchedule">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by strengthOfSchedule">Strength of Schedule</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.strengthOfSchedule}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.strengthOfSchedule}} </td>
       </ng-container>
 
       <!-- Game Control Column -->
       <ng-container matColumnDef="gameControl">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by gameControl">Game Control</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.gameControl}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.gameControl}} </td>
       </ng-container>
 
       <!-- Overall Efficiency Column -->
       <ng-container matColumnDef="overallEfficiency">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by overallEfficiency">Overall Efficiency</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.overallEfficiency}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.overallEfficiency}} </td>
       </ng-container>
 
       <!-- Offense Efficiency Column -->
       <ng-container matColumnDef="offenseEfficiency">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by offenseEfficiency">Offense Efficiency</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.offenseEfficiency}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.offenseEfficiency}} </td>
       </ng-container>
 
       <!-- Defense Efficiency Column -->
       <ng-container matColumnDef="defenseEfficiency">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by defenseEfficiency">Defense Efficiency</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.defenseEfficiency}} </td>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.defenseEfficiency}} </td>
       </ng-container>
 
       <!-- Special Teams Efficiency Column -->
       <ng-container matColumnDef="specialTeamsEfficiency">
-        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by specialTeamsEfficiency">Special Teams Efficiency</th>
-        <td *matCellDef="let team" class="table-cell" mat-cell> {{team.specialTeamsEfficiency}} </td>
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by specialelementsEfficiency">Special elements Efficiency</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.specialTeamsEfficiency}} </td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>

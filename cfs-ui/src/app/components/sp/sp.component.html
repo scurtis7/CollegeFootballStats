@@ -1,0 +1,95 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="mat-elevation-z8 header-container">
+  <app-menu></app-menu>
+  <span class="header-title">SP+</span>
+  <span class="header-subtitle">(Measure of college football efficiency)</span>
+
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectYear();" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="main-content-table">
+  <div class="mat-elevation-z8 table-container">
+    <table [dataSource]="dataSource" class="team-table" mat-table matSort>
+
+      <!-- Row Number -->
+      <ng-container matColumnDef="row">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header>#</th>
+        <td *matCellDef="let element;let i=index;" class="table-cell" mat-cell> {{i+1}} </td>
+      </ng-container>
+
+      <!-- Team Column -->
+      <ng-container matColumnDef="team">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by element">Team</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.team}} </td>
+      </ng-container>
+
+      <!-- Conference Column -->
+      <ng-container matColumnDef="conference">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by conference">Conference</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.conference}} </td>
+      </ng-container>
+
+      <!-- Rating Column -->
+      <ng-container matColumnDef="rating">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by rating">Rating</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.rating}} </td>
+      </ng-container>
+
+      <!-- Ranking Column -->
+      <ng-container matColumnDef="ranking">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by ranking">Ranking</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.ranking}} </td>
+      </ng-container>
+
+      <!-- Second Order Wins Column -->
+      <ng-container matColumnDef="secondOrderWins">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by secondOrderWins">Second Order Wins</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.secondOrderWins}} </td>
+      </ng-container>
+
+      <!-- Strength Of Schedule Column -->
+      <ng-container matColumnDef="sos">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by sos">Strength of Schedule</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.sos}} </td>
+      </ng-container>
+
+      <!-- Offense Rating Column -->
+      <ng-container matColumnDef="offenseRating">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by offenseRating">Offense Rating</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.offenseRating}} </td>
+      </ng-container>
+
+      <!-- Offense Ranking Column -->
+      <ng-container matColumnDef="offenseRanking">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by offenseRanking">Offense Ranking</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.offenseRanking}} </td>
+      </ng-container>
+
+      <!-- Defense Rating Column -->
+      <ng-container matColumnDef="defenseRating">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by defenseRating">Defense Rating</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.defenseRating}} </td>
+      </ng-container>
+
+      <!-- Defense Ranking Column -->
+      <ng-container matColumnDef="defenseRanking">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by defenseRanking">Defense Ranking</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.defenseRanking}} </td>
+      </ng-container>
+
+      <!-- Havoc Total Column -->
+      <ng-container matColumnDef="havocTotal">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by havocTotal">Havoc Total</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.havocTotal}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+</div>

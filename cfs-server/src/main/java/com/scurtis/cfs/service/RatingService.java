@@ -42,9 +42,11 @@ public class RatingService {
     }
 
     /**
-     * According to an ESPN article here: https://www.espn.com/college-football/insider/story/_/id/38823946/college-football-2023-week-10-sp+-rankings-takeaways
-     * What is SP+? In a single sentence, it's a tempo- and opponent-adjusted measure of college football efficiency. I created the system at Football Outsiders
-     * in 2008, and as my experience with both college football and its stats has grown, I have made quite a few tweaks to the system.
+     * According to an ESPN article here:
+     * https://www.espn.com/college-football/insider/story/_/id/38823946/college-football-2023-week-10-sp+-rankings-takeaways
+     * What is SP+? In a single sentence, it's a tempo- and opponent-adjusted measure of college football efficiency.
+     * I created the system at Football Outsiders in 2008, and as my experience with both college football and its
+     * stats has grown, I have made quite a few tweaks to the system.
      * Bill Connelly, ESPN Staff Writer
      * @param year required football season year
      * @return SP+ Rankings for the given year
@@ -56,6 +58,7 @@ public class RatingService {
             .retrieve()
             .bodyToFlux(Sp.class)
             .map(spConverter::toDto)
+            .filter(dto -> !dto.getTeam().equalsIgnoreCase("nationalAverages"))
             .sort();
     }
 
