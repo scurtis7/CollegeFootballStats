@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BetLineDto {
+public class BetLineDto implements Comparable<BetLineDto> {
 
     private int id;
     private int season;
@@ -42,5 +42,10 @@ public class BetLineDto {
     private String bovadaOverUnderOpen;
     private int bovadaHomeMoneyLine;
     private int bovadaAwayMoneyLine;
+
+    @Override
+    public int compareTo(BetLineDto other) {
+        return getHomeTeam().compareTo(other.getHomeTeam());
+    }
 
 }

@@ -12,12 +12,14 @@ import { SpinnerComponent } from './components/shared/spinner/spinner.component'
 import { FpiComponent } from './components/fpi/fpi.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { SpComponent } from './components/sp/sp.component';
+import { LinesComponent } from './components/lines/lines.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'teams', component: TeamsComponent },
   { path: 'fpi', component: FpiComponent },
   { path: 'sp', component: SpComponent },
+  { path: 'lines', component: LinesComponent },
   { path: '**', redirectTo: 'dashboard' }
 ];
 
@@ -29,7 +31,8 @@ const routes: Routes = [
     SpinnerComponent,
     FpiComponent,
     MenuComponent,
-    SpComponent
+    SpComponent,
+    LinesComponent
   ],
   imports: [
     HttpClientModule,

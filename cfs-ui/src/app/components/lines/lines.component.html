@@ -1,0 +1,82 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="mat-elevation-z8 header-container">
+  <app-menu></app-menu>
+  <span class="header-title">Betting Lines</span>
+
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectYear();" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectWeek();" [(ngModel)]="selectedWeek">
+      <option *ngFor="let week of weeks" [value]="week">Week {{week}}</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="main-content-table">
+  <div class="mat-elevation-z8 table-container">
+    <table [dataSource]="dataSource" class="team-table" mat-table matSort>
+
+      <!-- Home Team Column -->
+      <ng-container matColumnDef="homeTeam">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by homeTeam">Home Team</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.homeTeam}} </td>
+      </ng-container>
+
+      <!-- Home Conference Column -->
+      <ng-container matColumnDef="homeConference">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by homeConference">Home Conference</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.homeConference}} </td>
+      </ng-container>
+
+      <!-- Home Score Column -->
+      <ng-container matColumnDef="homeScore">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by homeScore">Home Score</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.homeScore}} </td>
+      </ng-container>
+
+      <!-- Away Team Column -->
+      <ng-container matColumnDef="awayTeam">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by awayTeam">Away Team</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.awayTeam}} </td>
+      </ng-container>
+
+      <!-- Away Conference Column -->
+      <ng-container matColumnDef="awayConference">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by awayConference">Away Conference</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.awayConference}} </td>
+      </ng-container>
+
+      <!-- Away Score Column -->
+      <ng-container matColumnDef="awayScore">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by awayScore">Away Score</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.awayScore}} </td>
+      </ng-container>
+
+      <!-- Bovada Spread Column -->
+      <ng-container matColumnDef="bovadaSpread">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by bovadaSpread">Bovada Spread</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.bovadaSpread}} </td>
+      </ng-container>
+
+      <!-- DraftKings Spread Column -->
+      <ng-container matColumnDef="draftKingsSpread">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by draftKingsSpread">DraftKings Spread</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.draftKingsSpread}} </td>
+      </ng-container>
+
+      <!-- ESPN Spread Column -->
+      <ng-container matColumnDef="espnSpread">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by espnSpread">ESPN Spread</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.espnSpread}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+</div>

@@ -23,7 +23,8 @@ public class BetLineService {
             .uri("lines?year=" + year + "&week=" + week)
             .retrieve()
             .bodyToFlux(BetLine.class)
-            .map(betLineConverter::toDto);
+            .map(betLineConverter::toDto)
+            .sort();
     }
 
 }

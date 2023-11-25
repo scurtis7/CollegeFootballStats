@@ -16,10 +16,19 @@
   align-self: center;
 }
 
-.select-container {
-  justify-self: right;
+.header-subtitle {
+  font-size: 20px;
+  color: $cfs-white;
+  justify-self: left;
   align-self: center;
-  width: 150px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.select-container {
+  justify-self: left;
+  align-self: center;
+  width: 120px;
   margin-left: 20px;
 }
 
