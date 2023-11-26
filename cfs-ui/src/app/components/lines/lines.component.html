@@ -63,16 +63,34 @@
         <td *matCellDef="let element" class="table-cell" mat-cell> {{element.bovadaSpread}} </td>
       </ng-container>
 
+      <!-- Bovada Over Under Column -->
+      <ng-container matColumnDef="bovadaOverUnder">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by bovadaOverUnder">Bovada Over Under</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.bovadaOverUnder}} </td>
+      </ng-container>
+
       <!-- DraftKings Spread Column -->
       <ng-container matColumnDef="draftKingsSpread">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by draftKingsSpread">DraftKings Spread</th>
         <td *matCellDef="let element" class="table-cell" mat-cell> {{element.draftKingsSpread}} </td>
       </ng-container>
 
+      <!-- DraftKings Over Under Column -->
+      <ng-container matColumnDef="draftKingsOverUnder">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by draftKingsOverUnder">DraftKings Over Under</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.draftKingsOverUnder}} </td>
+      </ng-container>
+
       <!-- ESPN Spread Column -->
       <ng-container matColumnDef="espnSpread">
         <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by espnSpread">ESPN Spread</th>
         <td *matCellDef="let element" class="table-cell" mat-cell> {{element.espnSpread}} </td>
+      </ng-container>
+
+      <!-- ESPN Over Under Column -->
+      <ng-container matColumnDef="espnOverUnder">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by espnOverUnder">ESPN Over Under</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.espnOverUnder}} </td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>

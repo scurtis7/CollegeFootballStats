@@ -16,7 +16,7 @@ export class LinesComponent implements OnInit, AfterViewInit {
   selectedYear = '2023';
   selectedWeek = '13';
 
-  displayedColumns: string[] = ['homeTeam', 'homeConference', 'homeScore', 'awayTeam', 'awayConference', 'awayScore', 'bovadaSpread', 'draftKingsSpread', 'espnSpread'];
+  displayedColumns: string[] = ['homeTeam', 'homeConference', 'homeScore', 'awayTeam', 'awayConference', 'awayScore', 'bovadaSpread', 'bovadaOverUnder', 'draftKingsSpread', 'draftKingsOverUnder', 'espnSpread', 'espnOverUnder'];
   dataSource: MatTableDataSource<Line> = new MatTableDataSource<Line>();
 
   private linesAll: Line[];
