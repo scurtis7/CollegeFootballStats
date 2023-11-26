@@ -4,6 +4,7 @@ import com.scurtis.cfs.converter.RosterConverter;
 import com.scurtis.cfs.converter.TeamConverter;
 import com.scurtis.cfs.dto.RosterDto;
 import com.scurtis.cfs.dto.TeamDto;
+import com.scurtis.cfs.dto.TeamNameDto;
 import com.scurtis.cfs.model.Roster;
 import com.scurtis.cfs.model.Team;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ public class TeamService {
             .uri("teams")
             .retrieve()
             .bodyToFlux(Team.class)
+            .filter(team -> team.getConference() != null)
             .map(teamConverter::toDto);
     }
 
@@ -37,6 +39,17 @@ public class TeamService {
             .retrieve()
             .bodyToFlux(Roster.class)
             .map(rosterConverter::toDto)
+            .sort();
+    }
+
+    public Flux<TeamNameDto> getTeamNames() {
+        log.debug("TeamService.getTeamNames()");
+        return webClient.get()
+            .uri("teams")
+            .retrieve()
+            .bodyToFlux(Team.class)
+            .filter(team -> team.getConference() != null)
+            .map(teamConverter::toTeamName)
             .sort();
     }
 

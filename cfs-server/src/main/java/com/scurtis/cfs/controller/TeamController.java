@@ -3,6 +3,7 @@ package com.scurtis.cfs.controller;
 import com.scurtis.cfs.dto.BetLineDto;
 import com.scurtis.cfs.dto.RosterDto;
 import com.scurtis.cfs.dto.TeamDto;
+import com.scurtis.cfs.dto.TeamNameDto;
 import com.scurtis.cfs.service.TeamService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,12 @@ public class TeamController {
     public Flux<RosterDto> getRosterByYearAndTeam(@PathVariable int year, @PathVariable String team) {
         log.debug("getRosterByYearAndTeam()");
         return teamService.getRosterByYearAndTeam(year, team);
+    }
+
+    @GetMapping(path = "teams/names")
+    public Flux<TeamNameDto> getTeamNames() {
+        log.debug("getTeamNames()");
+        return teamService.getTeamNames();
     }
 
 }

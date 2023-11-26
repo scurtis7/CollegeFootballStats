@@ -13,10 +13,12 @@ import { FpiComponent } from './components/fpi/fpi.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { SpComponent } from './components/sp/sp.component';
 import { LinesComponent } from './components/lines/lines.component';
+import { RosterComponent } from './components/roster/roster.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'teams', component: TeamsComponent },
+  { path: 'roster', component: RosterComponent },
   { path: 'fpi', component: FpiComponent },
   { path: 'sp', component: SpComponent },
   { path: 'lines', component: LinesComponent },
@@ -32,7 +34,8 @@ const routes: Routes = [
     FpiComponent,
     MenuComponent,
     SpComponent,
-    LinesComponent
+    LinesComponent,
+    RosterComponent
   ],
   imports: [
     HttpClientModule,

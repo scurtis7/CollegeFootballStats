@@ -12,7 +12,6 @@ import { LineService } from "../../service/line.service";
 export class LinesComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort;
-  searchValue = '';
   selectedYear = '2023';
   selectedWeek = '13';
 
@@ -41,8 +40,6 @@ export class LinesComponent implements OnInit, AfterViewInit {
 
   resetDatasource() {
     this.dataSource.data = this.lines;
-    this.searchValue = '';
-    this.dataSource.filter = this.searchValue;
     this.dataSource.sort = this.sort;
   }
 
@@ -52,12 +49,6 @@ export class LinesComponent implements OnInit, AfterViewInit {
 
   selectWeek() {
     this.getLines();
-  }
-
-  searchEvent(event: Event) {
-    this.searchValue = ((event.target as HTMLInputElement).value).trim().toLowerCase();
-    this.dataSource.filter = this.searchValue;
-    this.dataSource.sort = this.sort;
   }
 
   private getLines() {

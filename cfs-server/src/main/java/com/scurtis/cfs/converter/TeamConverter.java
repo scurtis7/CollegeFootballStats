@@ -1,6 +1,7 @@
 package com.scurtis.cfs.converter;
 
 import com.scurtis.cfs.dto.TeamDto;
+import com.scurtis.cfs.dto.TeamNameDto;
 import com.scurtis.cfs.model.Team;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,14 @@ public class TeamConverter {
         dto.setYearConstructed(team.getLocation().getYear_constructed());
         dto.setGrass(team.getLocation().getGrass());
         dto.setDome(team.getLocation().getDome());
+        return dto;
+    }
+
+    public TeamNameDto toTeamName(Team team) {
+        TeamNameDto dto = new TeamNameDto();
+        dto.setId(team.getId());
+        dto.setName(team.getSchool());
+        dto.setAbbreviation(team.getAbbreviation());
         return dto;
     }
 

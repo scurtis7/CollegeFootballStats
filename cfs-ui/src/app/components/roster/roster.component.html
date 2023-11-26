@@ -1,0 +1,70 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="mat-elevation-z8 header-container">
+  <app-menu></app-menu>
+  <span class="header-title">Player Roster</span>
+
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectYear();" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectTeam();" [(ngModel)]="selectedTeam">
+      <option *ngFor="let team of teams" [value]="team.name">{{team.name}}</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="main-content-table">
+  <div class="mat-elevation-z8 table-container">
+    <table [dataSource]="dataSource" class="team-table" mat-table matSort>
+
+      <!-- Jersey Column -->
+      <ng-container matColumnDef="jersey">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by jersey">Jersey</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.jersey}} </td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="first_name">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by first_name">First Name</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.first_name}} </td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="last_name">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by last_name">Last Name</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.last_name}} </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by position">Position</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Year Column -->
+      <ng-container matColumnDef="year">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by year">Year</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.year}} </td>
+      </ng-container>
+
+      <!-- Height Column -->
+      <ng-container matColumnDef="height">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by height">Height</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.height}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by weight">Weight</th>
+        <td *matCellDef="let element" class="table-cell" mat-cell> {{element.weight}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+</div>
