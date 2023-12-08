@@ -69,7 +69,7 @@ export class TeamsComponent implements OnInit, AfterViewInit {
   }
 
   private getConferences() {
-    this.conferences = [...new Set(this.teamsAll.map(x => x.conference))];
+    this.conferences = [...new Set(this.teamsAll.map(team => team.conference))];
     this.conferences.sort();
   }
 

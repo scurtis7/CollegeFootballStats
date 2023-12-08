@@ -1,0 +1,96 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="mat-elevation-z8 header-container">
+  <app-menu></app-menu>
+  <span class="header-title">Player Portal</span>
+
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectYear();" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectFilter();" [(ngModel)]="selectedOriginTeam">
+      <option value="All">All Origins</option>
+      <option *ngFor="let team of originTeams" [value]="team">{{team}}</option>
+    </select>
+  </div>
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectFilter();" [(ngModel)]="selectedDestinationTeam">
+      <option value="All">All Destinations</option>
+      <option *ngFor="let team of destinationTeams" [value]="team">{{team}}</option>
+    </select>
+  </div>
+  <div class="select-container">
+    <select class="form-select dropdown-font" (change)="selectFilter();" [(ngModel)]="selectedPosition">
+      <option value="All">All Positions</option>
+      <option *ngFor="let team of positions" [value]="team">{{team}}</option>
+    </select>
+  </div>
+  <div class="total-container">
+    <span class="total-span">Total: {{totalPlayers}}</span>
+  </div>
+
+</div>
+
+<div class="main-content-table">
+  <div class="mat-elevation-z8 table-container">
+    <table [dataSource]="dataSource" class="portal-table" mat-table matSort>
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by firstName">First Name</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.firstName}} </td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by lastName">Last Name</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.lastName}} </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by position">Position</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.position}} </td>
+      </ng-container>
+
+      <!-- Origin Team Column -->
+      <ng-container matColumnDef="origin">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by origin">Origin Team</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.origin}} </td>
+      </ng-container>
+
+      <!-- Destination Team Column -->
+      <ng-container matColumnDef="destination">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by destination">Destination Team</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.destination}} </td>
+      </ng-container>
+
+      <!-- Rating Column -->
+      <ng-container matColumnDef="rating">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by rating">Rating</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.rating}} </td>
+      </ng-container>
+
+      <!-- Stars Column -->
+      <ng-container matColumnDef="stars">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by stars">Stars</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.stars}} </td>
+      </ng-container>
+
+      <!-- Transfer Date Column -->
+      <ng-container matColumnDef="transferDate">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by transferDate">Transfer Date</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.transferDate | date: 'yyyy/MM/dd'}} </td>
+      </ng-container>
+
+      <!-- Eligibility Column -->
+      <ng-container matColumnDef="eligibility">
+        <th *matHeaderCellDef class="header-cell" mat-header-cell mat-sort-header sortActionDescription="Sort by eligibility">Eligibility</th>
+        <td *matCellDef="let player" class="table-cell" mat-cell> {{player.eligibility}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+</div>
