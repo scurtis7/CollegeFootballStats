@@ -1,6 +1,5 @@
 package com.scurtis.cfs.controller;
 
-import com.scurtis.cfs.dto.BetLineDto;
 import com.scurtis.cfs.dto.RosterDto;
 import com.scurtis.cfs.dto.TeamDto;
 import com.scurtis.cfs.dto.TeamNameDto;
@@ -9,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
