@@ -3,4 +3,23 @@
   <app-menu></app-menu>
   <span class="header-title">Dashboard</span>
 </div>
-<p>dashboard works!</p>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="tab-style nav-link active" id="nav-admin-tab" data-bs-toggle="tab" data-bs-target="#nav-admin" type="button" role="tab" aria-controls="nav-admin" aria-selected="true">Administration</button>
+    <button class="tab-style nav-link" id="nav-database-tab" data-bs-toggle="tab" data-bs-target="#nav-database" type="button" role="tab" aria-controls="nav-database" aria-selected="false">Database</button>
+    <button class="tab-style nav-link" id="nav-other-tab" data-bs-toggle="tab" data-bs-target="#nav-other" type="button" role="tab" aria-controls="nav-other" aria-selected="false">Other</button>
+  </div>
+</nav>
+<div class="main-content">
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab" tabindex="0">
+      Administration content goes here...
+    </div>
+    <div class="tab-pane fade" id="nav-database" role="tabpanel" aria-labelledby="nav-database-tab" tabindex="0">
+      Database content goes here...
+    </div>
+    <div class="tab-pane fade" id="nav-other" role="tabpanel" aria-labelledby="nav-other-tab" tabindex="0">
+      Other content goes here...
+    </div>
+  </div>
+</div>

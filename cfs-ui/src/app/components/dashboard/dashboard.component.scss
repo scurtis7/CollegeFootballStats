@@ -16,3 +16,18 @@
   align-self: center;
 }
 
+.main-content {
+  margin: 10px;
+  //border: 1px solid red;
+}
+
+.tab-style {
+  color: $cfs-blue-4;
+}
+
+.nav-link.active {
+  color: $cfs-white;
+  background-color: $cfs-blue-5;
+}
+
+
