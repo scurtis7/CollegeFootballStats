@@ -19,7 +19,7 @@ public class BetLineController {
     private final BetLineService betLineService;
 
     @GetMapping(path = "year/{year}/week/{week}")
-    public Flux<BetLineDto> getBettingLinesByYearAndWeek(@PathVariable int year, @PathVariable int week) {
+    public Flux<BetLineDto> getBettingLinesByYearAndWeek(@PathVariable int year, @PathVariable String week) {
         return betLineService.getBettingLinesByYearAndWeek(year, week);
     }
 

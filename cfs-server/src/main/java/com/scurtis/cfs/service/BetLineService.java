@@ -17,14 +17,22 @@ public class BetLineService {
     private final WebClient webClient;
     private final BetLineConverter betLineConverter;
 
-    public Flux<BetLineDto> getBettingLinesByYearAndWeek(int year, int week) {
+    public Flux<BetLineDto> getBettingLinesByYearAndWeek(int year, String week) {
         log.debug("BetLineService.getBettingLinesByYearAndWeek() -> year:{}  week:{}", year, week);
         return webClient.get()
-            .uri("lines?year=" + year + "&week=" + week)
+            .uri(getUri(year, week))
             .retrieve()
             .bodyToFlux(BetLine.class)
             .map(betLineConverter::toDto)
             .sort();
+    }
+
+    private String getUri(int year, String week) {
+        if (week.equalsIgnoreCase("postseason")) {
+            return "lines?year=" + year + "&seasonType=postseason";
+        } else {
+            return "lines?year=" + year + "&week=" + week;
+        }
     }
 
 }

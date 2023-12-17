@@ -12,6 +12,7 @@
   <div class="select-container">
     <select class="form-select dropdown-font" (change)="selectWeek();" [(ngModel)]="selectedWeek">
       <option *ngFor="let week of weeks" [value]="week">Week {{week}}</option>
+      <option value="postseason">Postseason</option>
     </select>
   </div>
 
